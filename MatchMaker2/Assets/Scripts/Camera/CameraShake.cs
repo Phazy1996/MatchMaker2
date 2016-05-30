@@ -23,7 +23,7 @@ public class CameraShake : MonoBehaviour {
 
     void Start()
     {
-        //Shake();
+        EventManager.OnTimesUp += Shake;
     }
 
     //public function that starts the camera shaking.

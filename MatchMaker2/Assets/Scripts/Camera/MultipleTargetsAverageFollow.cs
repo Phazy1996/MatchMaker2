@@ -32,8 +32,6 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
     }
     void Update()
     {
-
-
         //sets the position to the first target.
         tempPosition = targets[0].position;
 
@@ -54,7 +52,6 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
 
         //checks if the object is out of boundaries, if so it blocks the object to got there.
         CheckBoundaries();
-        //CheckIfToZoom();
 
         //declares the z distance from the target.
         tempPosition.z = zDistance;
@@ -70,7 +67,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         tempPosition.x = Mathf.Clamp(tempPosition.x, xMin, xMax);
         tempPosition.y =Mathf.Clamp(tempPosition.y, yMin, yMax);
     }
-
+    /*
     void CheckIfToZoom()
     {
         int z = 0;
@@ -88,7 +85,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         }
 
     }
-
+    */
 
 }
 
