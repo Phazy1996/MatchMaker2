@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour {
     }
     void CreateExplosion()
     {
-        for (int i = 0; i < 10; i ++)
+        for (int i = 0; i < 5; i ++)
         {
             GameObject temp =  Instantiate(explosionParticle, transform.position, Quaternion.identity)as GameObject;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-10,10), Random.Range(-10, 10));

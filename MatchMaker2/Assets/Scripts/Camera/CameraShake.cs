@@ -23,12 +23,15 @@ public class CameraShake : MonoBehaviour {
 
     void Start()
     {
-        EventManager.OnTimesUp += Shake;
+        Shake(0.1f,10f,0.05f);
     }
 
     //public function that starts the camera shaking.
-    public void Shake()
+    public void Shake(float _shakeTime = 1f, float _shakeForce = 10f, float _shakeRate = 0.1f)
     {
+        shakeTime = _shakeTime;
+        shakeRate = _shakeRate;
+        shakeTime = _shakeTime;
         StartCoroutine(CameraShaking());
     }
 

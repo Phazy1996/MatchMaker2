@@ -18,6 +18,9 @@ public class EventManager {
     //when the time is up of a match.
     public static void TimeIsUp()
     {
-        OnTimesUp();
+        if (OnTimesUp != null)
+        {
+            OnTimesUp();
+        }
     }
 }
