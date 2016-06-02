@@ -15,6 +15,11 @@ public class Movement : MonoBehaviour {
     private Vector3 leftScale;
     [SerializeField]
     private float maxGravity = -40;
+    [SerializeField]
+    private int playerId = 1;
+
+    [SerializeField]
+    private GameObject bullet;
     void Start()
     {
         scale = leftScale = transform.localScale;
@@ -22,7 +27,7 @@ public class Movement : MonoBehaviour {
     }
     void FixedUpdate()
     {
-        movement = new Vector2(Input.GetAxis("Horizontal") * playerSpeed/100, ySpeed);
+        movement = new Vector2(Input.GetAxis("Horizontal_P"+playerId.ToString()) * playerSpeed/100, ySpeed);
         transform.Translate(movement);
     }
     void Update () {
@@ -40,11 +45,23 @@ public class Movement : MonoBehaviour {
         {
             ySpeed -= gravity/100;
         }
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetButton("Fire1_P" + playerId.ToString()))
         {
-            ySpeed = jumpForce/100;
+            Shoot();
         }
+        if (Input.GetButtonDown("Jump_P" + playerId.ToString()) && isGrounded)
+        {
+            Jump();
+        }
+    }
+    void Shoot()
+    {
+        GameObject temp = Instantiate(bullet, new Vector2(transform.position.x + transform.localScale.x/5 , transform.position.y), Quaternion.identity) as GameObject;
+        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x, 0);
+    }
+    void Jump()
+    {
+        ySpeed = jumpForce / 100;
     }
     void OnTriggerStay2D(Collider2D coll)
     {
@@ -57,10 +74,8 @@ public class Movement : MonoBehaviour {
     }
     void OnCollisionStay2D(Collision2D coll)
     {
-        
         if(coll.gameObject.tag == Tags.ceiling || coll.gameObject.tag == Tags.ground)
         {
-            Debug.Log("edgfhj");
             ySpeed = 0;
         }
 

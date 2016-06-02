@@ -24,7 +24,7 @@ public class CountDownTimer : MonoBehaviour
         var fraction = (timerCount * 100) % 100;
 
         //updates the text to rounds the variables into 2 numbers.
-        _countDownText.text = string.Format("Time left: {0:00}:{1:00}:{2:00}", Mathf.Floor(minutes), seconds, fraction); 
+        _countDownText.text = string.Format("{0:00}:{1:00}:{2:00}", Mathf.Floor(minutes), seconds, fraction); 
     }
     private IEnumerator CountingDown()
     {
