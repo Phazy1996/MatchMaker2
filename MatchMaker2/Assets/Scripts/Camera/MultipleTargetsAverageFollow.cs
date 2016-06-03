@@ -33,7 +33,8 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
     void Update()
     {
         //sets the position to the first target.
-        tempPosition = targets[0].position;
+        if(targets[0] != null)
+            tempPosition = targets[0].position;
 
         //if there are more than one target to follow. 
         //It calculates the avarage distances between the targets by calculating the distances 
@@ -43,10 +44,11 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         {
             for (int i = 1; i < targets.Length; i++)
             {
-                distance = tempPosition - targets[i].position;
-                tempPosition -= distance / 2;
-
-
+                if(targets[i] != null)
+                {
+                    distance = tempPosition - targets[i].position;
+                    tempPosition -= distance / 2;
+                }
             }
         }
 

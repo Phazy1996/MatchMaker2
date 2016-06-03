@@ -2,6 +2,12 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
+
+    private bool isAlive = true;
+
+    private Animator animator;
+    [SerializeField]
+    private Transform gunPoint;
     [SerializeField]
     private float playerSpeed;
     [SerializeField]
@@ -22,11 +28,20 @@ public class Movement : MonoBehaviour {
     private GameObject bullet;
     void Start()
     {
+        animator = GetComponent<Animator>();
         scale = leftScale = transform.localScale;
         leftScale.x *= -1;
     }
     void FixedUpdate()
     {
+        if(Input.GetAxisRaw("Horizontal_P" + playerId.ToString()) == 0)
+        {
+            animator.SetBool("moving", false);
+        }
+        else
+        {
+            animator.SetBool("moving", true);
+        }
         movement = new Vector2(Input.GetAxis("Horizontal_P"+playerId.ToString()) * playerSpeed/100, ySpeed);
         transform.Translate(movement);
     }
@@ -45,19 +60,26 @@ public class Movement : MonoBehaviour {
         {
             ySpeed -= gravity/100;
         }
-        if(Input.GetButton("Fire1_P" + playerId.ToString()))
+        if(Input.GetButtonDown("Fire1_P" + playerId.ToString()))
         {
             Shoot();
         }
-        if (Input.GetButtonDown("Jump_P" + playerId.ToString()) && isGrounded)
+        if (Input.GetButton("Jump_P" + playerId.ToString()) && isGrounded)
         {
             Jump();
         }
     }
     void Shoot()
     {
-        GameObject temp = Instantiate(bullet, new Vector2(transform.position.x + transform.localScale.x/5 , transform.position.y), Quaternion.identity) as GameObject;
-        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x, 0);
+        animator.SetBool("shooting", true);
+        GameObject temp = Instantiate(bullet, gunPoint.position, Quaternion.identity) as GameObject;
+        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x *20, 0);
+        StartCoroutine(Shooting());
+    }
+    IEnumerator Shooting()
+    {
+        yield return new WaitForSeconds(0.4f);
+        animator.SetBool("shooting", false);
     }
     void Jump()
     {
@@ -98,5 +120,9 @@ public class Movement : MonoBehaviour {
     {
         set { ySpeed = value; }
     }
-
+    public bool IsAlive
+    {
+        set { isAlive = value; }
+        get { return isAlive; }
+    }
 }

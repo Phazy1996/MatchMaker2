@@ -21,6 +21,10 @@ public class Projectile : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         CreateExplosion();
+        if(coll.gameObject.tag == Tags.player)
+        {
+            Destroy(coll.gameObject);
+        }
         Destroy(this.gameObject);
     }
     void CreateExplosion()
