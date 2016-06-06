@@ -9,12 +9,19 @@ public class EventManager {
     public delegate void TimesUpHandeler();
     public static event TimesUpHandeler OnTimesUp;
 
+    public delegate void ScreenShakeHandeler();
+    public static event ScreenShakeHandeler OnScreenShake;
+
     //nullifies all delegates making them empty. Ideal when you want to reassign delegates.
     public static void Nullify()
     {
         OnTimesUp = null;
+        OnScreenShake = null;
     }
-
+    public static void ScreenShake()
+    {
+        OnScreenShake();
+    }
     //when the time is up of a match.
     public static void TimeIsUp()
     {

@@ -8,6 +8,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
     private float zDistance = -10;
     [SerializeField]
     private float lerpSpeed = 5f;
+
     //the targets themselves.
     [SerializeField]
     private Transform[] targets;
@@ -23,17 +24,23 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
     //tempPostiion is the vector3 variable that will be calculated.
     private Vector3 tempPosition;
 
+    [SerializeField]
+    private Transform bgImage;
+    private float ratioX, ratioY;
     //is used to calculate the distance of multpile targets positions.
     private Vector3 distance;
 
     void Awake()
     {
         zoomSize = mainCamera.GetComponent<Camera>().orthographicSize;
+        ratioX = bgImage.localScale.x / mainCamera.GetComponent<Camera>().orthographicSize;
+        ratioY = bgImage.localScale.y / mainCamera.GetComponent<Camera>().orthographicSize;
+
     }
     void Update()
     {
         //sets the position to the first target.
-        if(targets[0] != null)
+        if(targets[0].GetComponent<Movement>().IsAlive == true)
             tempPosition = targets[0].position;
 
         //if there are more than one target to follow. 
@@ -44,7 +51,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         {
             for (int i = 1; i < targets.Length; i++)
             {
-                if(targets[i] != null)
+                if(targets[i].GetComponent<Movement>().IsAlive == true)
                 {
                     distance = tempPosition - targets[i].position;
                     tempPosition -= distance / 2;
@@ -53,8 +60,8 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         }
 
         //checks if the object is out of boundaries, if so it blocks the object to got there.
-        CheckBoundaries();
-
+        //CheckBoundaries();
+        CheckIfToZoom();
         //declares the z distance from the target.
         tempPosition.z = zDistance;
         //aplies the tempPosition to the position of the object that must have the average position.
@@ -62,32 +69,37 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         //transform.position = tempPosition;
         transform.position = Vector3.Lerp(transform.position, tempPosition, lerpSpeed * Time.deltaTime);
 
-        mainCamera.GetComponent<Camera>().orthographicSize = Mathf.Lerp(mainCamera.GetComponent<Camera>().orthographicSize, zoomSize, Time.deltaTime * 10f);
-    }
+        }
     void CheckBoundaries()
     {
         tempPosition.x = Mathf.Clamp(tempPosition.x, xMin, xMax);
         tempPosition.y =Mathf.Clamp(tempPosition.y, yMin, yMax);
     }
-    /*
+    
     void CheckIfToZoom()
     {
         int z = 0;
-        for (int i = 1; i < targets.Length; i++)
+        for (int i = 0; i < targets.Length; i++)
         {
-            Vector3 screenPoint = mainCamera.WorldToViewportPoint(targets[i].position);
-            if (screenPoint.z > 0 && screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && zoomSize > 2)
+            if (targets[i].GetComponent<Movement>().IsAlive)
             {
-                zoomSize -= 0.1f;
-            }
-            else if ((screenPoint.x < 0.1 || screenPoint.x > 0.9 || screenPoint.y < 0.1 || screenPoint.y > 0.9) && zoomSize < 10)
-            {
-                zoomSize += 0.1f;
+                Vector3 screenPoint = mainCamera.WorldToViewportPoint(targets[i].position);
+                if (screenPoint.z > 0 && screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && zoomSize > 4)
+                {
+                    zoomSize = mainCamera.GetComponent<Camera>().orthographicSize - 1f;
+                }
+                else if ((screenPoint.x < 0.1 || screenPoint.x > 0.9 || screenPoint.y < 0.1 || screenPoint.y > 0.9) && zoomSize < 8)
+                {
+                    Debug.Log("outside of screen");
+                    zoomSize = mainCamera.GetComponent<Camera>().orthographicSize + 1f * targets.Length;
+                }
             }
         }
-
+        mainCamera.GetComponent<Camera>().orthographicSize = Mathf.Lerp(mainCamera.GetComponent<Camera>().orthographicSize, zoomSize, Time.deltaTime);
+        mainCamera.GetComponent<Camera>().orthographicSize = Mathf.Clamp(mainCamera.GetComponent<Camera>().orthographicSize, 4, 8);
+        bgImage.localScale = new Vector2(mainCamera.GetComponent<Camera>().orthographicSize * ratioX, mainCamera.GetComponent<Camera>().orthographicSize * ratioY );
     }
-    */
+
 
 }
 

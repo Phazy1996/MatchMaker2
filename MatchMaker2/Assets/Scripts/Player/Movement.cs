@@ -3,51 +3,74 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
 
+    private int killCount = 0;
     private bool isAlive = true;
+    private Vector2 spawnPos;
 
     private Animator animator;
-    [SerializeField]
-    private Transform gunPoint;
+
     [SerializeField]
     private float playerSpeed;
     [SerializeField]
     private float jumpForce;
-    private Vector2 movement = Vector2.zero;
-    private bool isGrounded = false;
-    private float ySpeed = 0;
     [SerializeField]
     private float gravity = 0.5f;
-    private Vector3 scale;
-    private Vector3 leftScale;
     [SerializeField]
     private float maxGravity = -40;
+    
+    private float ySpeed = 0;
+    private Vector2 movement = Vector2.zero;
+    private bool canFallTroughSmallPlatforms = false;
+    private bool isGrounded = false;
+
+    [SerializeField]
+    private ParticleSystem runCloud;
+    [SerializeField]
+    private GameObject impactCloud;
+
     [SerializeField]
     private int playerId = 1;
 
+
+    private Vector3 scale;
+    private Vector3 leftScale;
+
+    private bool canShoot = true;
+    [SerializeField]
+    private float shootCooldown = 0.4f;
     [SerializeField]
     private GameObject bullet;
+    [SerializeField]
+    private Transform gunPoint;
+
     void Start()
     {
+        spawnPos = transform.position;
         animator = GetComponent<Animator>();
         scale = leftScale = transform.localScale;
         leftScale.x *= -1;
     }
     void FixedUpdate()
     {
-        if(Input.GetAxisRaw("Horizontal_P" + playerId.ToString()) == 0)
-        {
-            animator.SetBool("moving", false);
-        }
-        else
-        {
-            animator.SetBool("moving", true);
-        }
-        movement = new Vector2(Input.GetAxis("Horizontal_P"+playerId.ToString()) * playerSpeed/100, ySpeed);
         transform.Translate(movement);
     }
     void Update () {
 
-        if(movement.x < 0)
+        if (transform.position.y < -10f)
+            Die();
+
+        if (Input.GetAxisRaw("Horizontal_P" + playerId.ToString()) == 0)
+        {
+            animator.SetBool("moving", false);
+            runCloud.enableEmission = false;
+        }
+        else
+        {
+            animator.SetBool("moving", true);
+            runCloud.enableEmission = true;
+        }
+
+        if (movement.x < 0)
         {
             transform.localScale = leftScale;
         }
@@ -60,7 +83,7 @@ public class Movement : MonoBehaviour {
         {
             ySpeed -= gravity/100;
         }
-        if(Input.GetButtonDown("Fire1_P" + playerId.ToString()))
+        if(Input.GetButtonDown("Fire1_P" + playerId.ToString()) && canShoot)
         {
             Shoot();
         }
@@ -68,28 +91,52 @@ public class Movement : MonoBehaviour {
         {
             Jump();
         }
+        if(Input.GetButton("Down_P" + playerId.ToString()) &&  !canFallTroughSmallPlatforms)
+        {
+            StartCoroutine(FallsTroughSmallPPlatforms());
+        }
+        movement = new Vector2(Input.GetAxis("Horizontal_P" + playerId.ToString()) * playerSpeed / 100, ySpeed);
     }
     void Shoot()
     {
         animator.SetBool("shooting", true);
         GameObject temp = Instantiate(bullet, gunPoint.position, Quaternion.identity) as GameObject;
-        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x *20, 0);
-        StartCoroutine(Shooting());
+        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x *20, Random.value);
+        temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
+        ySpeed += 0.1f;
+        StartCoroutine(ResetShooting());
+        StartCoroutine(ResetShootingAnimation());
     }
-    IEnumerator Shooting()
+    IEnumerator ResetShooting()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
+    }
+    IEnumerator ResetShootingAnimation()
     {
         yield return new WaitForSeconds(0.4f);
         animator.SetBool("shooting", false);
     }
+
+    IEnumerator FallsTroughSmallPPlatforms()
+    {
+        Debug.Log("falling");
+        canFallTroughSmallPlatforms = true;
+        isGrounded = false;
+        yield return new WaitForSeconds(1f);
+        canFallTroughSmallPlatforms = false;
+    }
     void Jump()
     {
         ySpeed = jumpForce / 100;
+        Instantiate(impactCloud, transform.position, Quaternion.identity);
     }
     void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == Tags.ground && ySpeed <= 0)
+        if (coll.gameObject.tag == Tags.ground && ySpeed <= 0 && !canFallTroughSmallPlatforms)
         {
-            //transform.Translate(new Vector2(0, -ySpeed));
+            transform.Translate(new Vector2(0, -ySpeed));
             ySpeed = 0;
             isGrounded = true;
         }
@@ -101,9 +148,10 @@ public class Movement : MonoBehaviour {
             ySpeed = 0;
         }
 
-        if (coll.gameObject.tag == Tags.ground && ySpeed <= 0)
+        if (coll.gameObject.tag == Tags.ground && ySpeed <= 0 && !isGrounded)
         {
             isGrounded = true;
+            Debug.Log("grounded");
         }
     }
     void OnTriggerExit2D(Collider2D coll)
@@ -122,7 +170,23 @@ public class Movement : MonoBehaviour {
     }
     public bool IsAlive
     {
-        set { isAlive = value; }
         get { return isAlive; }
+    }
+    public int KillCount
+    {
+        set{ killCount = value; }
+        get { return killCount; }
+    }
+    public void Die()
+    {
+        isAlive = false;
+        transform.position = new Vector2(100, 100);
+        StartCoroutine(Respawning());
+    }
+    IEnumerator Respawning()
+    {
+        yield return new WaitForSeconds(2f);
+        isAlive = true;
+        transform.position = spawnPos;
     }
 }

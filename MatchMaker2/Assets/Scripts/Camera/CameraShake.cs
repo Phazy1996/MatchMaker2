@@ -23,16 +23,14 @@ public class CameraShake : MonoBehaviour {
 
     void Start()
     {
-        Shake(0.1f,10f,0.05f);
+        EventManager.OnScreenShake += Shake;
     }
 
     //public function that starts the camera shaking.
-    public void Shake(float _shakeTime = 1f, float _shakeForce = 10f, float _shakeRate = 0.1f)
+    public void Shake()
     {
-        shakeTime = _shakeTime;
-        shakeRate = _shakeRate;
-        shakeTime = _shakeTime;
-        StartCoroutine(CameraShaking());
+        if(!isShacking)
+            StartCoroutine(CameraShaking());
     }
 
     //this numerator is active as long isAvtive is true. It calculates the randompositions and waits for the framerate, then it puts it back.

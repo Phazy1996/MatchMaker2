@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
+
+    private Movement playerWhoShootYou;
     private Rigidbody2D rb;
     [SerializeField]
     private GameObject explosionParticle;
@@ -10,29 +12,33 @@ public class Projectile : MonoBehaviour {
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        SetVelocity(xSpeed, 0);
     }
     public void SetVelocity(float _xSpeed, float _ySpeed)
     {
         rb.velocity = new Vector2(_xSpeed,_ySpeed);
     }
-
-
     void OnCollisionEnter2D(Collision2D coll)
     {
         CreateExplosion();
         if(coll.gameObject.tag == Tags.player)
         {
-            Destroy(coll.gameObject);
+            coll.gameObject.GetComponent<Movement>().Die();
+            playerWhoShootYou.KillCount++;
         }
         Destroy(this.gameObject);
     }
     void CreateExplosion()
     {
+        EventManager.ScreenShake();
         for (int i = 0; i < 5; i ++)
         {
             GameObject temp =  Instantiate(explosionParticle, transform.position, Quaternion.identity)as GameObject;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-10,10), Random.Range(-10, 10));
         }
+    }
+
+    public Movement PlayerWhoShootYou
+    {
+        set { playerWhoShootYou = value; }
     }
 }
