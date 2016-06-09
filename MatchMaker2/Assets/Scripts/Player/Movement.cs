@@ -26,7 +26,8 @@ public class Movement : MonoBehaviour {
     private ParticleSystem runCloud;
     [SerializeField]
     private GameObject impactCloud;
-
+    [SerializeField]
+    private GameObject deathCloud;
     [SerializeField]
     private int playerId = 1;
 
@@ -189,7 +190,9 @@ public class Movement : MonoBehaviour {
     public void Die()
     {
         isAlive = false;
+        Instantiate(deathCloud, transform.position, Quaternion.identity);
         transform.position = new Vector2(100, 100);
+        
         StartCoroutine(Respawning());
     }
     IEnumerator Respawning()

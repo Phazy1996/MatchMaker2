@@ -8,6 +8,7 @@ public class ResultHandeler : MonoBehaviour {
     private List<Movement> characters = new List<Movement>();
 
 	void Start () {
+        EventManager.OnTimesUp += CompareScore;
         GameObject[] tempplayers = GameObject.FindGameObjectsWithTag(Tags.player);
         for (int i = 0; i< tempplayers.Length; i ++)
         {
