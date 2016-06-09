@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
-
     private int killCount = 0;
     private bool isAlive = true;
     private Vector2 spawnPos;
@@ -108,7 +107,7 @@ public class Movement : MonoBehaviour {
         temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x *20, Random.value);
         temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
         ySpeed += 0.1f;
-        xSpeedExtra -= transform.localScale.x/10;
+        xSpeedExtra -= transform.localScale.x/50;
         StartCoroutine(ResetShooting());
         StartCoroutine(ResetShootingAnimation());
     }
@@ -120,7 +119,8 @@ public class Movement : MonoBehaviour {
     }
     IEnumerator ResetShootingAnimation()
     {
-        yield return new WaitForSeconds(0.4f);
+        
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length*0.5f);
         animator.SetBool("shooting", false);
     }
 
@@ -135,6 +135,7 @@ public class Movement : MonoBehaviour {
     {
         ySpeed = jumpForce / 100;
         Instantiate(impactCloud, transform.position, Quaternion.identity);
+        animator.SetBool("grounded", false);
     }
     void OnTriggerStay2D(Collider2D coll)
     {
@@ -144,6 +145,7 @@ public class Movement : MonoBehaviour {
             ySpeed = 0;
             xSpeedExtra = 0;
             isGrounded = true;
+            animator.SetBool("grounded", true);
         }
     }
     void OnCollisionStay2D(Collision2D coll)
@@ -156,6 +158,7 @@ public class Movement : MonoBehaviour {
 
         if (coll.gameObject.tag == Tags.ground && ySpeed <= 0 && !isGrounded)
         {
+            animator.SetBool("grounded", true);
             isGrounded = true;
             xSpeedExtra = 0;
         }
