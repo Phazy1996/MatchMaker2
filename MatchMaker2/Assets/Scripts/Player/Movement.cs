@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour {
     [SerializeField]
     private float maxGravity = -40;
     
-    private float ySpeed = 0;
+    private float ySpeed,xSpeed, xSpeedExtra = 0;
     private Vector2 movement = Vector2.zero;
     private bool canFallTroughSmallPlatforms = false;
     private bool isGrounded = false;
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour {
         if (transform.position.y < -10f)
             Die();
 
-        if (Input.GetAxisRaw("Horizontal_P" + playerId.ToString()) == 0)
+        if (xSpeed == 0)
         {
             animator.SetBool("moving", false);
             runCloud.enableEmission = false;
@@ -70,11 +70,11 @@ public class Movement : MonoBehaviour {
             runCloud.enableEmission = true;
         }
 
-        if (movement.x < 0)
+        if (xSpeed < 0)
         {
             transform.localScale = leftScale;
         }
-        else if (movement.x > 0)
+        else if (xSpeed> 0)
         {
             transform.localScale = scale;
         }
@@ -95,7 +95,11 @@ public class Movement : MonoBehaviour {
         {
             StartCoroutine(FallsTroughSmallPPlatforms());
         }
-        movement = new Vector2(Input.GetAxis("Horizontal_P" + playerId.ToString()) * playerSpeed / 100, ySpeed);
+
+        xSpeed = Input.GetAxis("Horizontal_P" + playerId.ToString()) * playerSpeed / 100;
+
+        movement.x = xSpeed + xSpeedExtra;
+        movement.y = ySpeed;
     }
     void Shoot()
     {
@@ -104,6 +108,7 @@ public class Movement : MonoBehaviour {
         temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x *20, Random.value);
         temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
         ySpeed += 0.1f;
+        xSpeedExtra -= transform.localScale.x/10;
         StartCoroutine(ResetShooting());
         StartCoroutine(ResetShootingAnimation());
     }
@@ -121,7 +126,6 @@ public class Movement : MonoBehaviour {
 
     IEnumerator FallsTroughSmallPPlatforms()
     {
-        Debug.Log("falling");
         canFallTroughSmallPlatforms = true;
         isGrounded = false;
         yield return new WaitForSeconds(1f);
@@ -138,6 +142,7 @@ public class Movement : MonoBehaviour {
         {
             transform.Translate(new Vector2(0, -ySpeed));
             ySpeed = 0;
+            xSpeedExtra = 0;
             isGrounded = true;
         }
     }
@@ -146,12 +151,13 @@ public class Movement : MonoBehaviour {
         if(coll.gameObject.tag == Tags.ceiling || coll.gameObject.tag == Tags.ground)
         {
             ySpeed = 0;
+
         }
 
         if (coll.gameObject.tag == Tags.ground && ySpeed <= 0 && !isGrounded)
         {
             isGrounded = true;
-            Debug.Log("grounded");
+            xSpeedExtra = 0;
         }
     }
     void OnTriggerExit2D(Collider2D coll)
@@ -186,6 +192,7 @@ public class Movement : MonoBehaviour {
     IEnumerator Respawning()
     {
         yield return new WaitForSeconds(2f);
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         isAlive = true;
         transform.position = spawnPos;
     }

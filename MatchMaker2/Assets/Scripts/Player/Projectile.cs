@@ -6,9 +6,9 @@ public class Projectile : MonoBehaviour {
     private Movement playerWhoShootYou;
     private Rigidbody2D rb;
     [SerializeField]
-    private GameObject explosionParticle;
+    private GameObject physicObject;
     [SerializeField]
-    private float xSpeed = 5;
+    private GameObject explosionParticles;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,9 +30,10 @@ public class Projectile : MonoBehaviour {
     void CreateExplosion()
     {
         EventManager.ScreenShake();
+        Instantiate(explosionParticles, transform.position, Quaternion.identity);
         for (int i = 0; i < 5; i ++)
         {
-            GameObject temp =  Instantiate(explosionParticle, transform.position, Quaternion.identity)as GameObject;
+            GameObject temp =  Instantiate(physicObject, transform.position, Quaternion.identity)as GameObject;
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-10,10), Random.Range(-10, 10));
         }
     }
