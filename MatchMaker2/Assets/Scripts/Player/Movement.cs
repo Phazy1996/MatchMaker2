@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
     private int killCount = 0;
-    private bool isAlive = true;
+    private bool isAlive = false;
+    private bool inControl = false;
     private Vector2 spawnPos;
 
     private Animator animator;
@@ -83,23 +84,30 @@ public class Movement : MonoBehaviour {
         {
             ySpeed -= gravity/100;
         }
-        if(Input.GetButtonDown("Fire1_P" + playerId.ToString()) && canShoot)
+        if(inControl)
+            UpdateInput();
+
+
+        movement.x = xSpeed + xSpeedExtra;
+        movement.y = ySpeed;
+    }
+    void UpdateInput()
+    {
+        if (Input.GetButtonDown("Fire1_P" + playerId.ToString()) && canShoot)
         {
             Shoot();
         }
-        if (Input.GetButton("Jump_P" + playerId.ToString()) && isGrounded)
+        if (Input.GetButtonDown("Jump_P" + playerId.ToString()) && isGrounded)
         {
             Jump();
         }
-        if(Input.GetButton("Down_P" + playerId.ToString()) &&  !canFallTroughSmallPlatforms)
+        if (Input.GetButton("Down_P" + playerId.ToString()) && !canFallTroughSmallPlatforms)
         {
             StartCoroutine(FallsTroughSmallPPlatforms());
         }
 
         xSpeed = Input.GetAxis("Horizontal_P" + playerId.ToString()) * playerSpeed / 100;
 
-        movement.x = xSpeed + xSpeedExtra;
-        movement.y = ySpeed;
     }
     void Shoot()
     {
@@ -174,13 +182,20 @@ public class Movement : MonoBehaviour {
         isGrounded = false;
     }
 
-    public float YSpeed
+    public int PlayerId
     {
-        set { ySpeed = value; }
+        get { return playerId; }
+        set { playerId = value; }
     }
     public bool IsAlive
     {
         get { return isAlive; }
+        set { isAlive = value; }
+    }
+    public bool InControl
+    {
+        get { return inControl; }
+        set { inControl = value; }
     }
     public int KillCount
     {
@@ -192,12 +207,16 @@ public class Movement : MonoBehaviour {
         isAlive = false;
         Instantiate(deathCloud, transform.position, Quaternion.identity);
         transform.position = new Vector2(100, 100);
-        
-        StartCoroutine(Respawning());
+        StartCoroutine(WaitForRespawning());
     }
-    IEnumerator Respawning()
+    public IEnumerator WaitForRespawning()
     {
         yield return new WaitForSeconds(2f);
+        if(InControl)
+            Respawn();
+    }
+    public void Respawn()
+    {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         isAlive = true;
         transform.position = spawnPos;

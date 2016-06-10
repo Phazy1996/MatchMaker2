@@ -13,8 +13,8 @@ public class CountDownTimer : MonoBehaviour
 
     void Start()
     {
-        //starts with counting down.
-        StartCoroutine(CountingDown());
+        UpdateText();
+        EventManager.OnStartCounting += StartCounting;
     }
     private void UpdateText()
     {
@@ -24,7 +24,11 @@ public class CountDownTimer : MonoBehaviour
         var fraction = (timerCount * 100) % 100;
 
         //updates the text to rounds the variables into 2 numbers.
-        _countDownText.text = string.Format("{0:00}:{1:00}:{2:00}", Mathf.Floor(minutes), seconds, fraction); 
+        _countDownText.text = string.Format("{0:00}:{1:00}", Mathf.Floor(minutes), seconds); 
+    }
+    private void StartCounting()
+    {
+        StartCoroutine(CountingDown());
     }
     private IEnumerator CountingDown()
     {
@@ -40,5 +44,6 @@ public class CountDownTimer : MonoBehaviour
         //when time is up.
         _countDownText.text = "Time left: 00:00:00";
         EventManager.TimeIsUp();
+        _countDownText.text = "Time's up!";
     }
 }

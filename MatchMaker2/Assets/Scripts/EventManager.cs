@@ -9,6 +9,9 @@ public class EventManager {
     public delegate void TimesUpHandeler();
     public static event TimesUpHandeler OnTimesUp;
 
+    public delegate void StartCountingHandeler();
+    public static event StartCountingHandeler OnStartCounting;
+
     public delegate void ScreenShakeHandeler();
     public static event ScreenShakeHandeler OnScreenShake;
 
@@ -17,11 +20,18 @@ public class EventManager {
     {
         OnTimesUp = null;
         OnScreenShake = null;
+        OnStartCounting = null;
     }
     public static void ScreenShake()
     {
         OnScreenShake();
     }
+
+    public static void StartCounting()
+    {
+        OnStartCounting();
+    }
+
     //when the time is up of a match.
     public static void TimeIsUp()
     {

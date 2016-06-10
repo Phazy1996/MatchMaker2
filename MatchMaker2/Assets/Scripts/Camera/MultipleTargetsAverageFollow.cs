@@ -40,7 +40,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
     void Update()
     {
         //sets the position to the first target.
-        if(targets[0].GetComponent<Movement>().IsAlive == true)
+        if(targets[0].GetComponent<Movement>().IsAlive)
             tempPosition = targets[0].position;
 
         //if there are more than one target to follow. 
@@ -51,7 +51,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         {
             for (int i = 1; i < targets.Length; i++)
             {
-                if(targets[i].GetComponent<Movement>().IsAlive == true)
+                if(targets[i].GetComponent<Movement>().IsAlive)
                 {
                     distance = tempPosition - targets[i].position;
                     tempPosition -= distance / 2;
@@ -77,11 +77,11 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
             if (targets[i].GetComponent<Movement>().IsAlive)
             {
                 Vector3 screenPoint = Camera.main.WorldToViewportPoint(targets[i].position);
-                if (screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && tempZoomSize > 4)
+                if (screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && tempZoomSize > minZoomSize)
                 {
                     tempZoomSize = zoomSize - 1f;
                 }
-                else if ((screenPoint.x < 0.1 || screenPoint.x > 0.9 || screenPoint.y < 0.1 || screenPoint.y > 0.9) && tempZoomSize < 8)
+                else if ((screenPoint.x < 0.1 || screenPoint.x > 0.9 || screenPoint.y < 0.1 || screenPoint.y > 0.9) && tempZoomSize < maxZoomSize)
                 {
                     tempZoomSize = zoomSize + 1f * targets.Length;
                 }
