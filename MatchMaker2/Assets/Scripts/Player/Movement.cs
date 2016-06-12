@@ -134,7 +134,8 @@ public class Movement : MonoBehaviour
     IEnumerator ResetShootingAnimation()
     {
 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length * 0.5f);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length *0.5f);
+        
         animator.SetBool("shooting", false);
     }
 

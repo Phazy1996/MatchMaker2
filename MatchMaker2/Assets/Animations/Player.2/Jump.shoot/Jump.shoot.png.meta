@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: 1791c29c62743e6459ceae3be45c8c2d
+timeCreated: 1465737062
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Jump.shoot_0
+    21300002: Jump.shoot_1
+    21300004: Jump.shoot_2
+    21300006: Jump.shoot_3
+    21300008: Jump.shoot_4
+    21300010: Jump.shoot_5
+    21300012: Jump.shoot_6
+    21300014: Jump.shoot_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 130
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Jump.shoot_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4136
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -97.81393, y: 43.181763}
+        - {x: -97.81393, y: -69.81824}
+        - {x: -85.81393, y: -100.81824}
+        - {x: 39.186073, y: -100.81824}
+        - {x: 110.18607, y: -59.818237}
+        - {x: 110.18607, y: 8.181763}
+        - {x: 66.18607, y: 43.181763}
+    - name: Jump.shoot_1
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 4136
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -105.45322, y: 35.181763}
+        - {x: -105.45322, y: -34.818237}
+        - {x: -57.453217, y: -101.81824}
+        - {x: 57.546783, y: -101.81824}
+        - {x: 117.54678, y: -70.81824}
+        - {x: 117.54678, y: 17.181763}
+        - {x: 37.546783, y: 35.181763}
+    - name: Jump.shoot_2
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 4136
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37.59247, y: 24.181763}
+        - {x: -112.59247, y: 24.181763}
+        - {x: -112.59247, y: 2.1817627}
+        - {x: -109.59247, y: -8.818237}
+        - {x: -77.59247, y: -31.818237}
+        - {x: -57.59247, y: -97.81824}
+        - {x: -55.59247, y: -100.81824}
+        - {x: -1.5924683, y: -100.81824}
+        - {x: 85.40753, y: -40.818237}
+        - {x: 85.40753, y: -8.818237}
+        - {x: 68.40753, y: 8.181763}
+    - name: Jump.shoot_3
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 4136
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39.26825, y: 15.181763}
+        - {x: -116.73175, y: 15.181763}
+        - {x: -116.73175, y: -26.818237}
+        - {x: -73.73175, y: -100.81824}
+        - {x: 45.26825, y: -100.81824}
+        - {x: 87.26825, y: -69.81824}
+        - {x: 87.26825, y: -1.8182373}
+        - {x: 71.26825, y: 13.181763}
+    - name: Jump.shoot_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3432
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107.81393, y: 21.321045}
+        - {x: -113.81393, y: 18.321045}
+        - {x: -114.81393, y: 16.321045}
+        - {x: -114.81393, y: -2.678955}
+        - {x: -85.81393, y: -31.678955}
+        - {x: -76.81393, y: -38.678955}
+        - {x: -64.81393, y: -100.678955}
+        - {x: 12.186073, y: -100.678955}
+        - {x: 87.18607, y: -64.678955}
+        - {x: 87.18607, y: -23.678955}
+        - {x: 69.18607, y: 0.32104492}
+        - {x: -57.813927, y: 21.321045}
+    - name: Jump.shoot_5
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 3432
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -111.45322, y: 28.321045}
+        - {x: -111.45322, y: 7.321045}
+        - {x: -106.45322, y: -5.678955}
+        - {x: -79.45322, y: -31.678955}
+        - {x: -64.45322, y: -31.678955}
+        - {x: -73.45322, y: -100.678955}
+        - {x: 28.546783, y: -100.678955}
+        - {x: 88.54678, y: -75.678955}
+        - {x: 88.54678, y: -19.678955}
+        - {x: 86.54678, y: -17.678955}
+        - {x: -1.4532166, y: 28.321045}
+    - name: Jump.shoot_6
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 3432
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.407532, y: 24.321045}
+        - {x: -50.59247, y: 34.321045}
+        - {x: -106.59247, y: 34.321045}
+        - {x: -106.59247, y: -18.678955}
+        - {x: -79.59247, y: -100.678955}
+        - {x: 26.407532, y: -100.678955}
+        - {x: 94.40753, y: -44.678955}
+        - {x: 94.40753, y: -28.678955}
+        - {x: 76.40753, y: 2.321045}
+    - name: Jump.shoot_7
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 3432
+        width: 704
+        height: 704
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 66.26825, y: -22.678955}
+        - {x: 68.26825, y: -20.678955}
+        - {x: 95.26825, y: -32.678955}
+        - {x: 100.26825, y: -33.678955}
+        - {x: 100.26825, y: -15.678955}
+        - {x: 89.26825, y: 11.321045}
+        - {x: -43.73175, y: 39.321045}
+        - {x: -100.73175, y: 39.321045}
+        - {x: -100.73175, y: -61.678955}
+        - {x: -88.73175, y: -100.678955}
+        - {x: -3.7317505, y: -100.678955}
+        - {x: 13.2682495, y: -94.678955}
+        - {x: 21.26825, y: -68.678955}
+        - {x: 67.26825, y: -40.678955}
+        - {x: 72.26825, y: -22.678955}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
