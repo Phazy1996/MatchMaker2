@@ -77,7 +77,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
             if (targets[i].GetComponent<Movement>().IsAlive)
             {
                 Vector3 screenPoint = Camera.main.WorldToViewportPoint(targets[i].position);
-                if (screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && tempZoomSize > minZoomSize)
+                if (screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && tempZoomSize > minZoomSize )
                 {
                     tempZoomSize = zoomSize - 1f;
                 }

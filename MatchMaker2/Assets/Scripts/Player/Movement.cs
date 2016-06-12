@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
     private int killCount = 0;
     private bool isAlive = false;
     private bool inControl = false;
@@ -17,12 +18,15 @@ public class Movement : MonoBehaviour {
     private float gravity = 0.5f;
     [SerializeField]
     private float maxGravity = -40;
-    
-    private float ySpeed,xSpeed, xSpeedExtra = 0;
+
+    private float ySpeed, xSpeed, xSpeedExtra = 0;
     private Vector2 movement = Vector2.zero;
     private bool canFallTroughSmallPlatforms = false;
     private bool isGrounded = false;
 
+
+    [SerializeField]
+    private GameObject spawnCloud;
     [SerializeField]
     private ParticleSystem runCloud;
     [SerializeField]
@@ -55,7 +59,8 @@ public class Movement : MonoBehaviour {
     {
         transform.Translate(movement);
     }
-    void Update () {
+    void Update()
+    {
 
         if (transform.position.y < -10f)
             Die();
@@ -75,16 +80,16 @@ public class Movement : MonoBehaviour {
         {
             transform.localScale = leftScale;
         }
-        else if (xSpeed> 0)
+        else if (xSpeed > 0)
         {
             transform.localScale = scale;
         }
-        
-        if(!isGrounded && ySpeed > maxGravity/100)
+
+        if (!isGrounded && ySpeed > maxGravity / 100)
         {
-            ySpeed -= gravity/100;
+            ySpeed -= gravity / 100;
         }
-        if(inControl)
+        if (inControl)
             UpdateInput();
 
 
@@ -113,10 +118,10 @@ public class Movement : MonoBehaviour {
     {
         animator.SetBool("shooting", true);
         GameObject temp = Instantiate(bullet, gunPoint.position, Quaternion.identity) as GameObject;
-        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x *20, Random.value);
+        temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x * 20, Random.value);
         temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
         ySpeed += 0.1f;
-        xSpeedExtra -= transform.localScale.x/50;
+        xSpeedExtra -= transform.localScale.x / 50;
         StartCoroutine(ResetShooting());
         StartCoroutine(ResetShootingAnimation());
     }
@@ -128,8 +133,8 @@ public class Movement : MonoBehaviour {
     }
     IEnumerator ResetShootingAnimation()
     {
-        
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length*0.5f);
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length * 0.5f);
         animator.SetBool("shooting", false);
     }
 
@@ -159,7 +164,7 @@ public class Movement : MonoBehaviour {
     }
     void OnCollisionStay2D(Collision2D coll)
     {
-        if(coll.gameObject.tag == Tags.ceiling || coll.gameObject.tag == Tags.ground)
+        if (coll.gameObject.tag == Tags.ceiling || coll.gameObject.tag == Tags.ground)
         {
             ySpeed = 0;
 
@@ -199,7 +204,7 @@ public class Movement : MonoBehaviour {
     }
     public int KillCount
     {
-        set{ killCount = value; }
+        set { killCount = value; }
         get { return killCount; }
     }
     public void Die()
@@ -212,7 +217,7 @@ public class Movement : MonoBehaviour {
     public IEnumerator WaitForRespawning()
     {
         yield return new WaitForSeconds(2f);
-        if(InControl)
+        if (InControl)
             Respawn();
     }
     public void Respawn()
@@ -220,5 +225,6 @@ public class Movement : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         isAlive = true;
         transform.position = spawnPos;
+        Instantiate(spawnCloud, transform.position, Quaternion.identity);
     }
 }
