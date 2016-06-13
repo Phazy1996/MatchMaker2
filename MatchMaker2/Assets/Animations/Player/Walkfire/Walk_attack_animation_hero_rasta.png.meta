@@ -1,0 +1,705 @@
+fileFormatVersion: 2
+guid: f7e096e9dbdfb614486392613ccc690a
+timeCreated: 1465554022
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Walk_attack_animation_hero_rasta_0
+    21300002: Walk_attack_animation_hero_rasta_1
+    21300004: Walk_attack_animation_hero_rasta_2
+    21300006: Walk_attack_animation_hero_rasta_3
+    21300008: Walk_attack_animation_hero_rasta_4
+    21300010: Walk_attack_animation_hero_rasta_5
+    21300012: Walk_attack_animation_hero_rasta_6
+    21300014: Walk_attack_animation_hero_rasta_7
+    21300016: Walk_attack_animation_hero_rasta_8
+    21300018: Walk_attack_animation_hero_rasta_9
+    21300020: Walk_attack_animation_hero_rasta_10
+    21300022: Walk_attack_animation_hero_rasta_11
+    21300024: Walk_attack_animation_hero_rasta_12
+    21300026: Walk_attack_animation_hero_rasta_13
+    21300028: Walk_attack_animation_hero_rasta_14
+    21300030: Walk_attack_animation_hero_rasta_15
+    21300032: Walk_attack_animation_hero_rasta_16
+    21300034: Walk_attack_animation_hero_rasta_17
+    21300036: Walk_attack_animation_hero_rasta_18
+    21300038: Walk_attack_animation_hero_rasta_19
+    21300040: Walk_attack_animation_hero_rasta_20
+    21300042: Walk_attack_animation_hero_rasta_21
+    21300044: Walk_attack_animation_hero_rasta_22
+    21300046: Walk_attack_animation_hero_rasta_23
+    21300048: Walk_attack_animation_hero_rasta_24
+    21300050: Walk_attack_animation_hero_rasta_25
+    21300052: Walk_attack_animation_hero_rasta_26
+    21300054: Walk_attack_animation_hero_rasta_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Walk_attack_animation_hero_rasta_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5060
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 61.04883}
+        - {x: -96, y: 61.04883}
+        - {x: -96, y: -75.95117}
+        - {x: -2, y: -75.95117}
+        - {x: 48, y: -23.951172}
+        - {x: 48, y: 2.0488281}
+        - {x: 46, y: 7.048828}
+    - name: Walk_attack_animation_hero_rasta_1
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 5060
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47.225143, y: -5.951172}
+        - {x: 35.225143, y: -4.951172}
+        - {x: -18.774857, y: 53.04883}
+        - {x: -27.774857, y: 60.04883}
+        - {x: -62.774857, y: 60.04883}
+        - {x: -88.77486, y: 43.04883}
+        - {x: -96.77486, y: 21.048828}
+        - {x: -96.77486, y: -19.951172}
+        - {x: -82.77486, y: -28.951172}
+        - {x: -86.77486, y: -72.95117}
+        - {x: -61.774857, y: -81.95117}
+        - {x: -6.7748566, y: -81.95117}
+        - {x: 48.225143, y: -33.95117}
+        - {x: 53.225143, y: -24.951172}
+        - {x: 53.225143, y: -9.951172}
+    - name: Walk_attack_animation_hero_rasta_2
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 5060
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -67.04971, y: 59.04883}
+        - {x: -90.04971, y: 40.04883}
+        - {x: -99.04971, y: 25.048828}
+        - {x: -99.04971, y: -60.95117}
+        - {x: -82.04971, y: -87.95117}
+        - {x: -11.049713, y: -87.95117}
+        - {x: 55.950287, y: -47.95117}
+        - {x: 55.950287, y: 0.048828125}
+        - {x: -33.049713, y: 59.04883}
+      - - {x: -61.049713, y: -80.95117}
+        - {x: -58.049713, y: -79.95117}
+        - {x: -58.049713, y: -76.95117}
+        - {x: -61.049713, y: -75.95117}
+        - {x: -63.049713, y: -77.95117}
+    - name: Walk_attack_animation_hero_rasta_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4513
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -71, y: 53.32361}
+        - {x: -95, y: 37.32361}
+        - {x: -95, y: -92.67639}
+        - {x: 24, y: -92.67639}
+        - {x: 36, y: -90.67639}
+        - {x: 58, y: -43.67639}
+        - {x: 58, y: 9.323608}
+        - {x: -19, y: 53.32361}
+      - - {x: -54, y: -83.67639}
+        - {x: -52, y: -85.67639}
+        - {x: -49, y: -84.67639}
+        - {x: -49, y: -81.67639}
+        - {x: -51, y: -79.67639}
+        - {x: -54, y: -80.67639}
+    - name: Walk_attack_animation_hero_rasta_4
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 4513
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.7748566, y: 46.32361}
+        - {x: -72.77486, y: 46.32361}
+        - {x: -87.77486, y: 43.32361}
+        - {x: -89.77486, y: 37.32361}
+        - {x: -89.77486, y: -90.67639}
+        - {x: 10.225143, y: -90.67639}
+        - {x: 36.225143, y: -85.67639}
+        - {x: 61.225143, y: -51.67639}
+        - {x: 61.225143, y: -24.676392}
+        - {x: 60.225143, y: -18.676392}
+    - name: Walk_attack_animation_hero_rasta_5
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 4513
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 52.950287, y: -19.676392}
+        - {x: -25.049713, y: 36.32361}
+        - {x: -29.049713, y: 38.32361}
+        - {x: -62.049713, y: 38.32361}
+        - {x: -86.04971, y: 10.323608}
+        - {x: -86.04971, y: -47.67639}
+        - {x: -68.04971, y: -91.67639}
+        - {x: -53.049713, y: -95.67639}
+        - {x: -27.049713, y: -95.67639}
+        - {x: 62.950287, y: -47.67639}
+        - {x: 62.950287, y: -32.67639}
+    - name: Walk_attack_animation_hero_rasta_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3966
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 84, y: -30.90149}
+        - {x: 81, y: -27.90149}
+        - {x: 100, y: -16.90149}
+        - {x: 100, y: -11.901489}
+        - {x: 99, y: -10.901489}
+        - {x: 60, y: 6.0985107}
+        - {x: -1, y: 40.09851}
+        - {x: -86, y: 40.09851}
+        - {x: -86, y: -88.90149}
+        - {x: -67, y: -92.90149}
+        - {x: -41, y: -92.90149}
+        - {x: -20, y: -61.90149}
+        - {x: 13, y: -65.90149}
+        - {x: 90, y: -40.90149}
+      - - {x: -34, y: -79.90149}
+        - {x: -31, y: -78.90149}
+        - {x: -31, y: -75.90149}
+        - {x: -34, y: -74.90149}
+        - {x: -36, y: -76.90149}
+    - name: Walk_attack_animation_hero_rasta_7
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 3966
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -56.774857, y: -79.90149}
+        - {x: -56.774857, y: -81.90149}
+        - {x: -51.774857, y: -85.90149}
+        - {x: -47.774857, y: -85.90149}
+        - {x: -45.774857, y: -83.90149}
+        - {x: -29.774857, y: -71.90149}
+        - {x: 8.225143, y: -44.90149}
+        - {x: 33.225143, y: -14.901489}
+        - {x: 38.225143, y: -7.9014893}
+        - {x: 38.225143, y: 22.09851}
+        - {x: 2.2251434, y: 44.09851}
+        - {x: -65.77486, y: 44.09851}
+        - {x: -85.77486, y: 19.09851}
+        - {x: -85.77486, y: -60.90149}
+        - {x: -73.77486, y: -88.90149}
+        - {x: -56.774857, y: -88.90149}
+        - {x: -55.774857, y: -86.90149}
+        - {x: -55.774857, y: -82.90149}
+        - {x: -56.774857, y: -81.90149}
+    - name: Walk_attack_animation_hero_rasta_8
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 3966
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88.04971, y: 47.09851}
+        - {x: -89.04971, y: 45.09851}
+        - {x: -89.04971, y: -84.90149}
+        - {x: -32.049713, y: -84.90149}
+        - {x: -0.049713135, y: -74.90149}
+        - {x: 43.950287, y: -31.90149}
+        - {x: 43.950287, y: 5.0985107}
+        - {x: 7.950287, y: 47.09851}
+    - name: Walk_attack_animation_hero_rasta_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3419
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -70, y: 54.873413}
+        - {x: -89, y: 26.873413}
+        - {x: -89, y: -84.12659}
+        - {x: -10, y: -84.12659}
+        - {x: 23, y: -72.12659}
+        - {x: 48, y: -28.126587}
+        - {x: 48, y: 1.8734131}
+        - {x: -27, y: 54.873413}
+    - name: Walk_attack_animation_hero_rasta_10
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 3419
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.7748566, y: 60.873413}
+        - {x: -51.774857, y: 60.873413}
+        - {x: -77.77486, y: 44.873413}
+        - {x: -90.77486, y: 19.873413}
+        - {x: -90.77486, y: -82.12659}
+        - {x: -53.774857, y: -82.12659}
+        - {x: -21.774857, y: -79.12659}
+        - {x: 53.225143, y: -46.126587}
+        - {x: 53.225143, y: 10.873413}
+        - {x: 17.225143, y: 59.873413}
+    - name: Walk_attack_animation_hero_rasta_11
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 3419
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.049713, y: 65.87341}
+        - {x: -60.049713, y: 65.87341}
+        - {x: -92.04971, y: 43.873413}
+        - {x: -92.04971, y: -15.126587}
+        - {x: -87.04971, y: -24.126587}
+        - {x: -75.04971, y: -15.126587}
+        - {x: -72.04971, y: -13.126587}
+        - {x: -70.04971, y: -13.126587}
+        - {x: -72.04971, y: -13.126587}
+        - {x: -77.04971, y: -19.126587}
+        - {x: -80.04971, y: -24.126587}
+        - {x: -81.04971, y: -30.126587}
+        - {x: -76.04971, y: -38.126587}
+        - {x: -69.04971, y: -42.126587}
+        - {x: -66.04971, y: -44.126587}
+        - {x: -66.04971, y: -43.126587}
+        - {x: -74.04971, y: -45.126587}
+        - {x: -81.04971, y: -45.126587}
+        - {x: -90.04971, y: -53.126587}
+        - {x: -92.04971, y: -69.12659}
+        - {x: -92.04971, y: -79.12659}
+        - {x: 0.95028687, y: -79.12659}
+        - {x: 26.950287, y: -68.12659}
+        - {x: 56.950287, y: -33.126587}
+        - {x: 56.950287, y: 3.873413}
+    - name: Walk_attack_animation_hero_rasta_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2872
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -92, y: 62.148193}
+        - {x: -92, y: -78.85181}
+        - {x: 42, y: -78.85181}
+        - {x: 60, y: -73.85181}
+        - {x: 60, y: -12.851807}
+        - {x: 3, y: 62.148193}
+    - name: Walk_attack_animation_hero_rasta_13
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 2872
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65.77486, y: 57.148193}
+        - {x: -92.77486, y: 30.148193}
+        - {x: -92.77486, y: -77.85181}
+        - {x: -90.77486, y: -82.85181}
+        - {x: 52.225143, y: -82.85181}
+        - {x: 63.225143, y: -63.851807}
+        - {x: 63.225143, y: -1.8518066}
+        - {x: -21.774857, y: 57.148193}
+    - name: Walk_attack_animation_hero_rasta_14
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 2872
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.049713, y: -54.851807}
+        - {x: 55.950287, y: -65.85181}
+        - {x: 64.95029, y: -48.851807}
+        - {x: 64.95029, y: 14.148193}
+        - {x: -28.049713, y: 52.148193}
+        - {x: -61.049713, y: 52.148193}
+        - {x: -93.04971, y: 18.148193}
+        - {x: -93.04971, y: -84.85181}
+        - {x: -90.04971, y: -86.85181}
+        - {x: -21.049713, y: -86.85181}
+        - {x: -13.049713, y: -75.85181}
+        - {x: -26.049713, y: -56.851807}
+        - {x: -30.049713, y: -54.851807}
+        - {x: -34.049713, y: -54.851807}
+    - name: Walk_attack_animation_hero_rasta_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2325
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 52.423096}
+        - {x: -88, y: 51.423096}
+        - {x: -94, y: -24.576904}
+        - {x: -85, y: -40.576904}
+        - {x: -76, y: -44.576904}
+        - {x: -73, y: -43.576904}
+        - {x: -69, y: -46.576904}
+        - {x: -63, y: -46.576904}
+        - {x: -68, y: -50.576904}
+        - {x: -74, y: -44.576904}
+        - {x: -81, y: -45.576904}
+        - {x: -95, y: -59.576904}
+        - {x: -95, y: -78.576904}
+        - {x: -72, y: -91.576904}
+        - {x: 6, y: -91.576904}
+        - {x: 64, y: -43.576904}
+        - {x: 64, y: -20.576904}
+        - {x: -3, y: 52.423096}
+    - name: Walk_attack_animation_hero_rasta_16
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 2325
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.774857, y: 48.423096}
+        - {x: -58.774857, y: 48.423096}
+        - {x: -90.77486, y: 24.423096}
+        - {x: -90.77486, y: -29.576904}
+        - {x: -84.77486, y: -45.576904}
+        - {x: -72.77486, y: -47.576904}
+        - {x: -64.77486, y: -53.576904}
+        - {x: -68.77486, y: -50.576904}
+        - {x: -78.77486, y: -50.576904}
+        - {x: -90.77486, y: -65.576904}
+        - {x: -90.77486, y: -79.576904}
+        - {x: -67.77486, y: -92.576904}
+        - {x: 14.225143, y: -92.576904}
+        - {x: 101.22514, y: -39.576904}
+        - {x: 101.22514, y: -4.5769043}
+        - {x: 56.225143, y: 5.4230957}
+    - name: Walk_attack_animation_hero_rasta_17
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 2325
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.950287, y: -53.576904}
+        - {x: 36.950287, y: -24.576904}
+        - {x: 36.950287, y: 5.4230957}
+        - {x: -26.049713, y: 42.423096}
+        - {x: -31.049713, y: 44.423096}
+        - {x: -55.049713, y: 44.423096}
+        - {x: -87.04971, y: 14.423096}
+        - {x: -87.04971, y: -91.576904}
+        - {x: -75.04971, y: -93.576904}
+        - {x: -29.049713, y: -93.576904}
+        - {x: -27.049713, y: -92.576904}
+        - {x: -27.049713, y: -70.576904}
+        - {x: -28.049713, y: -68.576904}
+        - {x: -33.049713, y: -66.576904}
+    - name: Walk_attack_animation_hero_rasta_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1778
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -84, y: 40.197998}
+        - {x: -84, y: -98.802}
+        - {x: -4, y: -98.802}
+        - {x: 43, y: -23.802002}
+        - {x: 43, y: 40.197998}
+    - name: Walk_attack_animation_hero_rasta_19
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1778
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -51.774857, y: 41.197998}
+        - {x: -78.77486, y: 13.197998}
+        - {x: -78.77486, y: -94.802}
+        - {x: -17.774857, y: -94.802}
+        - {x: 49.225143, y: -72.802}
+        - {x: 49.225143, y: 7.197998}
+        - {x: -4.7748566, y: 41.197998}
+    - name: Walk_attack_animation_hero_rasta_20
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1778
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40.049713, y: 42.197998}
+        - {x: -67.04971, y: 32.197998}
+        - {x: -82.04971, y: 18.197998}
+        - {x: -82.04971, y: -86.802}
+        - {x: -81.04971, y: -90.802}
+        - {x: -37.049713, y: -90.802}
+        - {x: 52.950287, y: -29.802002}
+        - {x: 52.950287, y: 6.197998}
+        - {x: 5.950287, y: 42.197998}
+    - name: Walk_attack_animation_hero_rasta_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1231
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 43.97284}
+        - {x: -71, y: 32.97284}
+        - {x: -92, y: -18.02716}
+        - {x: -92, y: -86.02716}
+        - {x: -32, y: -86.02716}
+        - {x: 57, y: -30.02716}
+        - {x: 57, y: -5.0271606}
+        - {x: -15, y: 43.97284}
+    - name: Walk_attack_animation_hero_rasta_22
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1231
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -87.77486, y: 51.97284}
+        - {x: -89.77486, y: 42.97284}
+        - {x: -89.77486, y: -84.02716}
+        - {x: -7.7748566, y: -84.02716}
+        - {x: 61.225143, y: -36.02716}
+        - {x: 61.225143, y: -0.027160645}
+        - {x: 12.225143, y: 51.97284}
+    - name: Walk_attack_animation_hero_rasta_23
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1231
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64.04971, y: 58.97284}
+        - {x: -90.04971, y: 42.97284}
+        - {x: -90.04971, y: -80.02716}
+        - {x: -27.049713, y: -80.02716}
+        - {x: -11.049713, y: -75.02716}
+        - {x: 62.950287, y: -46.02716}
+        - {x: 62.950287, y: 6.9728394}
+        - {x: 27.950287, y: 58.97284}
+    - name: Walk_attack_animation_hero_rasta_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 66.247696}
+        - {x: -81, y: 64.247696}
+        - {x: -92, y: 51.247696}
+        - {x: -92, y: -74.752304}
+        - {x: 65, y: -74.752304}
+        - {x: 65, y: 17.247696}
+        - {x: 32, y: 66.247696}
+    - name: Walk_attack_animation_hero_rasta_25
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 684
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 52.225143, y: 66.247696}
+        - {x: -92.77486, y: 66.247696}
+        - {x: -92.77486, y: -72.752304}
+        - {x: -8.774857, y: -72.752304}
+        - {x: 101.22514, y: -18.752304}
+        - {x: 101.22514, y: 10.247696}
+        - {x: 57.225143, y: 65.247696}
+    - name: Walk_attack_animation_hero_rasta_26
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 684
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.9502869, y: 64.247696}
+        - {x: -53.049713, y: 64.247696}
+        - {x: -80.04971, y: 54.247696}
+        - {x: -93.04971, y: 27.247696}
+        - {x: -93.04971, y: 0.24769592}
+        - {x: -88.04971, y: -18.752304}
+        - {x: -93.04971, y: -34.752304}
+        - {x: -93.04971, y: -71.752304}
+        - {x: -10.049713, y: -71.752304}
+        - {x: 38.950287, y: -6.752304}
+        - {x: 38.950287, y: 34.247696}
+    - name: Walk_attack_animation_hero_rasta_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 137
+        width: 547
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -80, y: 61.022568}
+        - {x: -94, y: 33.022568}
+        - {x: -94, y: -70.97743}
+        - {x: 0, y: -70.97743}
+        - {x: 44, y: -28.977432}
+        - {x: 44, y: 21.022568}
+        - {x: -4, y: 61.022568}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

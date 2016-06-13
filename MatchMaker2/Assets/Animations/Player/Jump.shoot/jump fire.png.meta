@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: 138274b5ac9a2d645bb154e4131daf22
+timeCreated: 1465825610
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: jump fire_0
+    21300002: jump fire_1
+    21300004: jump fire_2
+    21300006: jump fire_3
+    21300008: jump fire_4
+    21300010: jump fire_5
+    21300012: jump fire_6
+    21300014: jump fire_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: jump fire_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5042
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -79.5, y: 51.97644}
+        - {x: -99.5, y: 15.97644}
+        - {x: -99.5, y: -49.02356}
+        - {x: -54.5, y: -100.02356}
+        - {x: -52.5, y: -101.02356}
+        - {x: 7.5, y: -101.02356}
+        - {x: 72.5, y: -40.02356}
+        - {x: 72.5, y: 9.97644}
+        - {x: -11.5, y: 51.97644}
+      - - {x: -66.5, y: -71.02356}
+        - {x: -64.5, y: -73.02356}
+        - {x: -61.5, y: -72.02356}
+        - {x: -61.5, y: -69.02356}
+        - {x: -63.5, y: -67.02356}
+        - {x: -66.5, y: -68.02356}
+    - name: jump fire_1
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 5042
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -76.20256, y: 52.97644}
+        - {x: -90.20256, y: 47.97644}
+        - {x: -99.20256, y: 9.97644}
+        - {x: -99.20256, y: -53.02356}
+        - {x: -59.20256, y: -100.02356}
+        - {x: -1.2025604, y: -100.02356}
+        - {x: 103.79744, y: -19.02356}
+        - {x: 103.79744, y: 4.9764404}
+        - {x: 1.7974396, y: 52.97644}
+    - name: jump fire_2
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 5042
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48.09488, y: -43.02356}
+        - {x: 48.09488, y: 6.9764404}
+        - {x: 7.094879, y: 53.97644}
+        - {x: -63.90512, y: 53.97644}
+        - {x: -80.90512, y: 39.97644}
+        - {x: -97.90512, y: 10.97644}
+        - {x: -97.90512, y: -71.02356}
+        - {x: -84.90512, y: -89.02356}
+        - {x: -59.90512, y: -100.02356}
+        - {x: -32.90512, y: -100.02356}
+        - {x: -21.90512, y: -93.02356}
+        - {x: -11.905121, y: -75.02356}
+        - {x: -16.90512, y: -58.02356}
+        - {x: 10.094879, y: -55.02356}
+    - name: jump fire_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4477
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6.5, y: -51.820923}
+        - {x: 15.5, y: -42.820923}
+        - {x: 17.5, y: -33.820923}
+        - {x: 50.5, y: -38.820923}
+        - {x: 50.5, y: 0.17907715}
+        - {x: 7.5, y: 55.179077}
+        - {x: -81.5, y: 55.179077}
+        - {x: -87.5, y: 51.179077}
+        - {x: -98.5, y: 23.179077}
+        - {x: -98.5, y: -37.820923}
+        - {x: -70.5, y: -79.82092}
+        - {x: -55.5, y: -99.82092}
+        - {x: -34.5, y: -99.82092}
+        - {x: -26.5, y: -97.82092}
+        - {x: -9.5, y: -72.82092}
+        - {x: -18.5, y: -57.820923}
+    - name: jump fire_4
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 4477
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.79744, y: -8.820923}
+        - {x: 35.79744, y: -11.820923}
+        - {x: -17.20256, y: 48.179077}
+        - {x: -25.20256, y: 55.179077}
+        - {x: -48.20256, y: 55.179077}
+        - {x: -79.20256, y: 45.179077}
+        - {x: -98.20256, y: 13.179077}
+        - {x: -90.20256, y: 1.1790771}
+        - {x: -83.20256, y: -4.820923}
+        - {x: -81.20256, y: -4.820923}
+        - {x: -87.20256, y: -3.8209229}
+        - {x: -95.20256, y: -1.8209229}
+        - {x: -98.20256, y: -10.820923}
+        - {x: -98.20256, y: -32.820923}
+        - {x: -91.20256, y: -39.820923}
+        - {x: -72.20256, y: -42.820923}
+        - {x: -72.20256, y: -79.82092}
+        - {x: -63.20256, y: -100.82092}
+        - {x: 14.79744, y: -100.82092}
+        - {x: 53.79744, y: -69.82092}
+        - {x: 53.79744, y: -12.820923}
+        - {x: 41.79744, y: -6.820923}
+    - name: jump fire_5
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 4477
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.90512, y: 56.179077}
+        - {x: -45.90512, y: 56.179077}
+        - {x: -71.90512, y: 49.179077}
+        - {x: -94.90512, y: 16.179077}
+        - {x: -98.90512, y: 1.1790771}
+        - {x: -98.90512, y: -26.820923}
+        - {x: -89.90512, y: -40.820923}
+        - {x: -72.90512, y: -38.820923}
+        - {x: -73.90512, y: -77.82092}
+        - {x: -57.90512, y: -100.82092}
+        - {x: -37.90512, y: -100.82092}
+        - {x: -25.90512, y: -95.82092}
+        - {x: -2.9051208, y: -84.82092}
+        - {x: 57.09488, y: -49.820923}
+        - {x: 57.09488, y: -10.820923}
+    - name: jump fire_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3912
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65.5, y: 55.88159}
+        - {x: -99.5, y: 36.88159}
+        - {x: -99.5, y: -32.11841}
+        - {x: -62.5, y: -101.11841}
+        - {x: -15.5, y: -101.11841}
+        - {x: 65.5, y: -31.118408}
+        - {x: 65.5, y: 1.8815918}
+        - {x: -1.5, y: 55.88159}
+    - name: jump fire_7
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 3912
+        width: 565
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86.20256, y: 54.88159}
+        - {x: -99.20256, y: 36.88159}
+        - {x: -99.20256, y: -79.11841}
+        - {x: -78.20256, y: -102.11841}
+        - {x: -3.2025604, y: -102.11841}
+        - {x: 49.79744, y: -73.11841}
+        - {x: 74.79744, y: -38.11841}
+        - {x: 74.79744, y: 45.88159}
+        - {x: 37.79744, y: 54.88159}
+      - - {x: -64.20256, y: -73.11841}
+        - {x: -61.20256, y: -72.11841}
+        - {x: -61.20256, y: -69.11841}
+        - {x: -64.20256, y: -68.11841}
+        - {x: -66.20256, y: -70.11841}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
