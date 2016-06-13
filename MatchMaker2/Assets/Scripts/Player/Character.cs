@@ -101,6 +101,7 @@ public class Character : MonoBehaviour
             GameObject temp = Instantiate(bullet, gunPoint.position, Quaternion.identity) as GameObject;
             temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x * 20, Random.value);
             temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
+            temp.transform.localScale = new Vector2(temp.transform.localScale.x *transform.localScale.x, temp.transform.localScale.y);
             ySpeed += 0.1f;
             xSpeedExtra -= transform.localScale.x / 50;
             StartCoroutine(ResetShooting());

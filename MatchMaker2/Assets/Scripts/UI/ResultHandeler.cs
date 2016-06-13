@@ -21,6 +21,7 @@ public class ResultHandeler : MonoBehaviour {
         GameObject[] tempplayers = GameObject.FindGameObjectsWithTag(Tags.player);
         for (int i = 0; i< tempplayers.Length; i ++)
         {
+            if(tempplayers[i].name != "character1(Clone)" && tempplayers[i].name != "character2(Clone)")
                 characters.Add(tempplayers[i].GetComponent<Character>());
                 Debug.Log(tempplayers[i].name);
         }
