@@ -11,24 +11,27 @@ public class ResultHandeler : MonoBehaviour {
     private Text killNumbersText;
     [SerializeField]
     private GameObject resultScreen;
-    private List<Movement> characters = new List<Movement>();
+    [SerializeField]
+    private List<Character> characters;
     [SerializeField]
     private Text introCountDownText;
 	void Start () {
+        characters = new List<Character>(0);
         EventManager.OnTimesUp += MakeResultScreen;
         GameObject[] tempplayers = GameObject.FindGameObjectsWithTag(Tags.player);
         for (int i = 0; i< tempplayers.Length; i ++)
         {
-            characters.Add(tempplayers[i].GetComponent<Movement>());
+                characters.Add(tempplayers[i].GetComponent<Character>());
+                Debug.Log(tempplayers[i].name);
         }
         StartCoroutine(Intro());
 	}
     IEnumerator Intro()
     {
-        foreach (Movement move in characters)
+        yield return new WaitForSeconds(1f);
+        foreach (Character move in characters)
         {
             yield return new WaitForSeconds(1f);
-            Debug.Log("sup");
             move.Respawn();
         }
         yield return new WaitForSeconds(1f);
@@ -38,9 +41,10 @@ public class ResultHandeler : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         introCountDownText.text = "Fight!";
-        foreach (Movement move in characters)
+        foreach (Character move in characters)
         {
             move.InControl = true;
+            move.gameObject.GetComponent<PlayerInput>().enabled = true;
         }
         EventManager.StartCounting();
         yield return new WaitForSeconds(0.5f);
@@ -52,13 +56,13 @@ public class ResultHandeler : MonoBehaviour {
     }
     IEnumerator MakingResultScreen()
     {
-        characters = characters.OrderBy(x => x.GetComponent<Movement>().KillCount * -2).ToList();
+        characters = characters.OrderBy(x => x.GetComponent<Character>().KillCount * -2).ToList();
         yield return new WaitForSeconds(0.5f);
         resultScreen.SetActive(true);
         int place = 1;
-        foreach (Movement move in characters)
+        foreach (Character move in characters)
         {
-            playerNameText.text += place.ToString() + ". player " + move.PlayerId.ToString() + "\n";
+            playerNameText.text += place.ToString() + ". player " + move.gameObject.GetComponent<PlayerInput>().PlayerId.ToString() + "\n";
             place++;
             killNumbersText.text += move.KillCount.ToString() + " kills \n";
             if (characters.IndexOf(move) != 0)

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
-    private Movement playerWhoShootYou;
+    private Character playerWhoShootYou;
     private Rigidbody2D rb;
     [SerializeField]
     private GameObject physicObject;
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour {
         CreateExplosion();
         if(coll.gameObject.tag == Tags.player)
         {
-            coll.gameObject.GetComponent<Movement>().Die();
+            coll.gameObject.GetComponent<Character>().Die();
             playerWhoShootYou.KillCount++;
         }
         Destroy(this.gameObject);
@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour {
         }
     }
 
-    public Movement PlayerWhoShootYou
+    public Character PlayerWhoShootYou
     {
         set { playerWhoShootYou = value; }
     }

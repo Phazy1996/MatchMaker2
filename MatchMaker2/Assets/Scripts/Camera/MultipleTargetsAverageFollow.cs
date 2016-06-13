@@ -40,7 +40,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
     void Update()
     {
         //sets the position to the first target.
-        if(targets[0].GetComponent<Movement>().IsAlive)
+        if(targets[0].GetComponent<Character>().IsAlive)
             tempPosition = targets[0].position;
 
         //if there are more than one target to follow. 
@@ -51,7 +51,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         {
             for (int i = 1; i < targets.Length; i++)
             {
-                if(targets[i].GetComponent<Movement>().IsAlive)
+                if(targets[i].GetComponent<Character>().IsAlive)
                 {
                     distance = tempPosition - targets[i].position;
                     tempPosition -= distance / 2;
@@ -74,7 +74,7 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
         zoomSize = mainCamera.GetComponent<Camera>().orthographicSize;
         for (int i = 0; i < targets.Length; i++)
         {
-            if (targets[i].GetComponent<Movement>().IsAlive)
+            if (targets[i].GetComponent<Character>().IsAlive)
             {
                 Vector3 screenPoint = Camera.main.WorldToViewportPoint(targets[i].position);
                 if (screenPoint.x > 0.3 && screenPoint.x < 0.7 && screenPoint.y > 0.3 && screenPoint.y < 0.7 && tempZoomSize > minZoomSize )
@@ -87,8 +87,9 @@ public class MultipleTargetsAverageFollow : MonoBehaviour
                 }
             }
         }
+        tempZoomSize = Mathf.Clamp(tempZoomSize, minZoomSize, maxZoomSize);
         zoomSize = Mathf.Lerp(zoomSize, tempZoomSize, Time.deltaTime);
-        zoomSize = Mathf.Clamp(zoomSize, minZoomSize, maxZoomSize);
+        
         bgImage.localScale = new Vector2(zoomSize * ratioX, zoomSize * ratioY );
         mainCamera.GetComponent<Camera>().orthographicSize = zoomSize;
     }

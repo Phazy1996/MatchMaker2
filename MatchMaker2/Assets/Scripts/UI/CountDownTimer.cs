@@ -24,7 +24,7 @@ public class CountDownTimer : MonoBehaviour
         var fraction = (timerCount * 100) % 100;
 
         //updates the text to rounds the variables into 2 numbers.
-        _countDownText.text = string.Format("{0:00}:{1:00}", Mathf.Floor(minutes), seconds); 
+        _countDownText.text = string.Format("{0:0}:{1:00}", Mathf.Floor(minutes), seconds); 
     }
     private void StartCounting()
     {
@@ -42,8 +42,8 @@ public class CountDownTimer : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         //when time is up.
-        _countDownText.text = "Time left: 00:00:00";
         EventManager.TimeIsUp();
+        _countDownText.fontSize = 60;
         _countDownText.text = "Time's up!";
     }
 }
