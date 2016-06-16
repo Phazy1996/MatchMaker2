@@ -4,85 +4,70 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //Splash Screen
+    [SerializeField]
+    private GameObject splashScreen;
 
     //UI Buttons Main Menu
     [SerializeField]
-    private GameObject howToPlayButton;
-    [SerializeField]
-    private GameObject playButton;
-    [SerializeField]
-    private GameObject quitButton;
-    [SerializeField]
     private GameObject backButton;
     [SerializeField]
-    private GameObject creditsButton;
+    private GameObject mainMenuButtons;
 
     //UI Text
     [SerializeField]
     private GameObject gameTitle;
     [SerializeField]
-    private GameObject howToPlayText;
+    private GameObject howToPlay;
     [SerializeField]
-    private GameObject howToPlayTitle;
-    [SerializeField]
-    private GameObject creditsTitle;
-    [SerializeField]
-    private GameObject creditsText;
+    private GameObject credits;
+
 
 
     void Start()
     {
+        splashScreen.SetActive(true);
         backButton.SetActive(false);
-        howToPlayTitle.SetActive(false);
-        howToPlayText.SetActive(false);
-        creditsText.SetActive(false);
-        creditsTitle.SetActive(false);
+        howToPlay.SetActive(false);
+        credits.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown)
+            splashScreen.SetActive(false);
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("CameraTest");
     }
 
     public void HowToPlayButton()
     {
         backButton.SetActive(true);
-        playButton.SetActive(false);
-        quitButton.SetActive(false);
-        howToPlayButton.SetActive(false);
-        creditsButton.SetActive(false);
+        mainMenuButtons.SetActive(false);
         gameTitle.SetActive(false);
-        howToPlayText.SetActive(true);
-        howToPlayTitle.SetActive(true);
-        creditsText.SetActive(false);
-        creditsTitle.SetActive(false);
+        howToPlay.SetActive(true);
+        credits.SetActive(false);
     }
 
     public void CreditsButton()
     {
         backButton.SetActive(true);
-        playButton.SetActive(false);
-        quitButton.SetActive(false);
-        howToPlayButton.SetActive(false);
-        creditsButton.SetActive(false);
+        mainMenuButtons.SetActive(false);
         gameTitle.SetActive(false);
-        howToPlayText.SetActive(false);
-        creditsText.SetActive(true);
-        creditsTitle.SetActive(true);
+        howToPlay.SetActive(false);
+        credits.SetActive(true);
     }
 
     public void BackToMenuButton()
     {
         backButton.SetActive(false);
-        playButton.SetActive(true);
-        quitButton.SetActive(true);
-        howToPlayButton.SetActive(true);
-        creditsButton.SetActive(true);
+        mainMenuButtons.SetActive(true);
         gameTitle.SetActive(true);
-        howToPlayText.SetActive(false);
-        howToPlayTitle.SetActive(false);
-        creditsText.SetActive(false);
-        creditsTitle.SetActive(false);
+        howToPlay.SetActive(false);
+        credits.SetActive(false);
     }
 
 
