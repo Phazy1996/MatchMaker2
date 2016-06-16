@@ -33,6 +33,7 @@ public class CountDownTimer : MonoBehaviour
     }
     private IEnumerator CountingDown()
     {
+
         //as long the timercount hasn't reached ten.
         while(timerCount > 10)
         {
@@ -45,6 +46,7 @@ public class CountDownTimer : MonoBehaviour
 
         _countDownText.fontSize = 50;
         _countDownText.color = Color.red;
+        lastSecondsSound.Play();
         //as long the timercount hasn't reached zero.
         while (timerCount >= 0)
         {

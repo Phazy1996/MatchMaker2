@@ -18,10 +18,10 @@ public class ResultHandeler : MonoBehaviour {
 
     [SerializeField]
     private AudioSource fightGoingSound;
-
     [SerializeField]
     private AudioSource backgroundSound;
-
+    [SerializeField]
+    private AudioSource tickingSound;
     void Start () {
         characters = new List<Character>(0);
         EventManager.OnTimesUp += MakeResultScreen;
@@ -46,9 +46,11 @@ public class ResultHandeler : MonoBehaviour {
         backgroundSound.volume = 0.7f;
         for (int i = 3; i > 0; i--)
         {
+            tickingSound.Play();
             introCountDownText.text = i.ToString();
             yield return new WaitForSeconds(0.5f);
         }
+        tickingSound.Stop();
         introCountDownText.text = "Fight!";
         fightGoingSound.Play();
         foreach (Character move in characters)
@@ -68,9 +70,9 @@ public class ResultHandeler : MonoBehaviour {
     IEnumerator MakingResultScreen()
     {
         fightGoingSound.Play();
-        backgroundSound.volume = 0.3f;
+        backgroundSound.Stop();
         characters = characters.OrderBy(x => x.GetComponent<Character>().KillCount * -2).ToList();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         resultScreen.SetActive(true);
         int place = 1;
         foreach (Character move in characters)

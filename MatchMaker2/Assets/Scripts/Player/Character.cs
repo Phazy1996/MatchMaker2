@@ -34,7 +34,8 @@ public class Character : MonoBehaviour
     private GameObject impactCloud;
     [SerializeField]
     private GameObject deathCloud;
-
+    [SerializeField]
+    private GameObject gunFlashCloud;
 
     private Vector3 scale;
     private Vector3 leftScale;
@@ -48,8 +49,6 @@ public class Character : MonoBehaviour
     private Transform gunPoint;
     [SerializeField]
     private AudioSource gunSound;
-    [SerializeField]
-    private AudioSource respawnSound;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -103,6 +102,7 @@ public class Character : MonoBehaviour
         {
             gunSound.Play();
             animator.SetBool("shooting", true);
+            Instantiate(gunFlashCloud, gunPoint.position,gunFlashCloud.transform.rotation);
             GameObject temp = Instantiate(bullet, gunPoint.position, Quaternion.identity) as GameObject;
             temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x * 20, Random.value);
             temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
@@ -225,7 +225,5 @@ public class Character : MonoBehaviour
         isAlive = true;
         transform.position = spawnPointData.SpawnPoints[Random.Range(0,spawnPointData.SpawnPoints.Length)].transform.position;
         Instantiate(spawnCloud, transform.position, Quaternion.identity);
-        respawnSound.Play();
-
     }
 }
