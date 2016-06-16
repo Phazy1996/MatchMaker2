@@ -15,7 +15,14 @@ public class ResultHandeler : MonoBehaviour {
     private List<Character> characters;
     [SerializeField]
     private Text introCountDownText;
-	void Start () {
+
+    [SerializeField]
+    private AudioSource fightGoingSound;
+
+    [SerializeField]
+    private AudioSource backgroundSound;
+
+    void Start () {
         characters = new List<Character>(0);
         EventManager.OnTimesUp += MakeResultScreen;
         GameObject[] tempplayers = GameObject.FindGameObjectsWithTag(Tags.player);
@@ -23,12 +30,12 @@ public class ResultHandeler : MonoBehaviour {
         {
             if(tempplayers[i].name != "character1(Clone)" && tempplayers[i].name != "character2(Clone)")
                 characters.Add(tempplayers[i].GetComponent<Character>());
-                Debug.Log(tempplayers[i].name);
         }
         StartCoroutine(Intro());
 	}
     IEnumerator Intro()
     {
+        backgroundSound.volume = 0.3f;
         yield return new WaitForSeconds(1f);
         foreach (Character move in characters)
         {
@@ -36,12 +43,14 @@ public class ResultHandeler : MonoBehaviour {
             move.Respawn();
         }
         yield return new WaitForSeconds(1f);
+        backgroundSound.volume = 0.7f;
         for (int i = 3; i > 0; i--)
         {
             introCountDownText.text = i.ToString();
             yield return new WaitForSeconds(0.5f);
         }
         introCountDownText.text = "Fight!";
+        fightGoingSound.Play();
         foreach (Character move in characters)
         {
             move.InControl = true;
@@ -49,6 +58,7 @@ public class ResultHandeler : MonoBehaviour {
         }
         EventManager.StartCounting();
         yield return new WaitForSeconds(0.5f);
+        backgroundSound.volume = 1f;
         introCountDownText.text = "";
     }
     void MakeResultScreen()
@@ -57,6 +67,8 @@ public class ResultHandeler : MonoBehaviour {
     }
     IEnumerator MakingResultScreen()
     {
+        fightGoingSound.Play();
+        backgroundSound.volume = 0.3f;
         characters = characters.OrderBy(x => x.GetComponent<Character>().KillCount * -2).ToList();
         yield return new WaitForSeconds(0.5f);
         resultScreen.SetActive(true);

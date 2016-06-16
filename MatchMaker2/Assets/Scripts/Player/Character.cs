@@ -48,6 +48,8 @@ public class Character : MonoBehaviour
     private Transform gunPoint;
     [SerializeField]
     private AudioSource gunSound;
+    [SerializeField]
+    private AudioSource respawnSound;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -72,7 +74,10 @@ public class Character : MonoBehaviour
         else
         {
             animator.SetBool("moving", true);
-            runCloud.enableEmission = true;
+            if(isGrounded)
+                runCloud.enableEmission = true;
+            else
+                runCloud.enableEmission = false;
         }
 
         if (xSpeed < 0)
@@ -218,8 +223,9 @@ public class Character : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         isAlive = true;
-        
         transform.position = spawnPointData.SpawnPoints[Random.Range(0,spawnPointData.SpawnPoints.Length)].transform.position;
         Instantiate(spawnCloud, transform.position, Quaternion.identity);
+        respawnSound.Play();
+
     }
 }

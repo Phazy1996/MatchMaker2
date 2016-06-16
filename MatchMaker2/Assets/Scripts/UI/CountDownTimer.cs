@@ -9,7 +9,8 @@ public class CountDownTimer : MonoBehaviour
     private Text _countDownText;
     [SerializeField]
     private float timerCount;
-
+    [SerializeField]
+    private AudioSource lastSecondsSound;
 
     void Start()
     {
@@ -32,18 +33,32 @@ public class CountDownTimer : MonoBehaviour
     }
     private IEnumerator CountingDown()
     {
-        //as long the timercount hasn't reached zero.
-        while(timerCount > 0)
+        //as long the timercount hasn't reached ten.
+        while(timerCount > 10)
         {
             //update the text.
             UpdateText();
             //lowers the timecount with the seconds.
-            timerCount -= Time.deltaTime;
-            yield return new WaitForFixedUpdate();
+            timerCount -= 1;
+            yield return new WaitForSeconds(1f);
         }
+
+        _countDownText.fontSize = 50;
+        _countDownText.color = Color.red;
+        //as long the timercount hasn't reached zero.
+        while (timerCount >= 0)
+        {
+            //update the text.
+            UpdateText();
+            //lowers the timecount with the seconds.
+            timerCount -= 1;
+            yield return new WaitForSeconds(1f);
+        }
+
         //when time is up.
         EventManager.TimeIsUp();
         _countDownText.fontSize = 60;
+        _countDownText.color = Color.white;
         _countDownText.text = "Time's up!";
     }
 }
