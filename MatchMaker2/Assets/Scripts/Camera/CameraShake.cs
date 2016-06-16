@@ -19,7 +19,8 @@ public class CameraShake : MonoBehaviour {
     private float shakeTime = 10f;
     [SerializeField]
     private float shakeRate = 0.01f;
-
+    [SerializeField]
+    private bool canBeShaked = true;
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class CameraShake : MonoBehaviour {
     //public function that starts the camera shaking.
     public void Shake()
     {
-        if(!isShacking)
+        if(canBeShaked)
             StartCoroutine(CameraShaking());
     }
 
@@ -44,11 +45,13 @@ public class CameraShake : MonoBehaviour {
             transform.position -= randomPos;
             yield return new WaitForFixedUpdate();
         }
+        canBeShaked = true;
     }
 
     //this numerator handles how long the shake is active.
     IEnumerator CameraShaking()
     {
+        canBeShaked = false;
         isShacking = true;
         StartCoroutine(RandomPositions());
         yield return new WaitForSeconds(shakeTime);

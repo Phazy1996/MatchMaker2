@@ -108,7 +108,7 @@ public class Character : MonoBehaviour
             temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
             temp.transform.localScale = new Vector2(temp.transform.localScale.x *transform.localScale.x, temp.transform.localScale.y);
             ySpeed += 0.1f;
-            xSpeedExtra -= transform.localScale.x / 50;
+            xSpeedExtra -= transform.localScale.x / 40;
             StartCoroutine(ResetShooting());
             StartCoroutine(ResetShootingAnimation());
         }
@@ -122,7 +122,7 @@ public class Character : MonoBehaviour
     IEnumerator ResetShootingAnimation()
     {
 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length *0.5f);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length *0.3f);
         
         animator.SetBool("shooting", false);
     }

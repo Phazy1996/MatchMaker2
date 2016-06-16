@@ -20,11 +20,10 @@ public class PlayerInput : MonoBehaviour {
         {
             character.Jump();
         }
-        if (Input.GetButton("Down_P" + playerId.ToString()))
+        if (Input.GetButton("Down_P" + playerId.ToString()) || Input.GetAxis("DownAxis_P" + playerId.ToString()) > 0.9f)
         {
             character.Down();
         }
-
         character.XSpeed = Input.GetAxis("Horizontal_P" + playerId.ToString());
 
     }
