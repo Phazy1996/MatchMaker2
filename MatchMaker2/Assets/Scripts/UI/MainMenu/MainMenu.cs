@@ -26,7 +26,15 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        splashScreen.SetActive(true);
+        if(!EventManager.started)
+        {
+            splashScreen.SetActive(true);
+            EventManager.started = true;
+        }
+        else
+        {
+            splashScreen.SetActive(false);
+        }
         backButton.SetActive(false);
         howToPlay.SetActive(false);
         credits.SetActive(false);

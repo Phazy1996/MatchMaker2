@@ -15,6 +15,7 @@ public class EventManager {
     public delegate void ScreenShakeHandeler();
     public static event ScreenShakeHandeler OnScreenShake;
 
+    public static bool started = false;
     //nullifies all delegates making them empty. Ideal when you want to reassign delegates.
     public static void Nullify()
     {
