@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     //Splash Screen
@@ -16,12 +16,11 @@ public class MainMenu : MonoBehaviour
 
     //UI Text
     [SerializeField]
-    private GameObject gameTitle;
-    [SerializeField]
     private GameObject howToPlay;
     [SerializeField]
     private GameObject credits;
-
+    [SerializeField]
+    private Text playText;
 
 
     void Start()
@@ -46,16 +45,15 @@ public class MainMenu : MonoBehaviour
             splashScreen.SetActive(false);
     }
 
-    public void PlayGame()
+    public void LoadingScreen()
     {
-        SceneManager.LoadScene("CameraTest");
+        playText.text = "loading";
     }
 
     public void HowToPlayButton()
     {
         backButton.SetActive(true);
         mainMenuButtons.SetActive(false);
-        gameTitle.SetActive(false);
         howToPlay.SetActive(true);
         credits.SetActive(false);
     }
@@ -64,7 +62,6 @@ public class MainMenu : MonoBehaviour
     {
         backButton.SetActive(true);
         mainMenuButtons.SetActive(false);
-        gameTitle.SetActive(false);
         howToPlay.SetActive(false);
         credits.SetActive(true);
     }
@@ -73,7 +70,6 @@ public class MainMenu : MonoBehaviour
     {
         backButton.SetActive(false);
         mainMenuButtons.SetActive(true);
-        gameTitle.SetActive(true);
         howToPlay.SetActive(false);
         credits.SetActive(false);
     }

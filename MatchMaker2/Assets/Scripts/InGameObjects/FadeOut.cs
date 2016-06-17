@@ -8,16 +8,40 @@ public class FadeOut : MonoBehaviour {
     private float fadeSpeed = 0.01f;
     [SerializeField]
     private bool looping = false;
-    [SerializeField] private SpriteRenderer fadeImage;
+    [SerializeField]
+    private SpriteRenderer fadeSpriteRender;
+    [SerializeField]
+    private Image fadeImage;
+    [SerializeField]
+    private Text fadeText;
     private Color temp;
-
+    [SerializeField]
+    private float maxAlpha = 1;
+    [SerializeField]
+    private float minAlpha = 0;
     void Start()
     {
-        if(looping)
+        if (fadeSpriteRender != null)
+            temp = fadeSpriteRender.color;
+        if (fadeImage != null)
+            temp = fadeImage.color;
+        if (fadeText != null)
+            temp = fadeText.color;
+        if (looping)
         {
             StartFade();
         }
     }
+    void Update()
+    {
+        if (fadeImage != null)
+            fadeImage.color = temp;
+        if (fadeSpriteRender != null)
+            fadeSpriteRender.color = temp;
+        if (fadeText != null)
+            fadeText.color = temp;
+    }
+
     public void StartFade()
     {
         StartCoroutine(FadeIn());
@@ -28,11 +52,9 @@ public class FadeOut : MonoBehaviour {
     }
     IEnumerator FadeIn()
     {
-        while (fadeImage.color.a < 1)
+        while (temp.a < maxAlpha)
         {
-            temp = fadeImage.color;
             temp.a += fadeSpeed;
-            fadeImage.color = temp;
             yield return new WaitForFixedUpdate();
         }
         if(looping)
@@ -42,11 +64,9 @@ public class FadeOut : MonoBehaviour {
     }
     IEnumerator FadeOver()
     {
-        while (fadeImage.color.a > 0)
+        while (temp.a > minAlpha)
         {
-            temp = fadeImage.color;
             temp.a -= fadeSpeed;
-            fadeImage.color = temp;
             yield return new WaitForFixedUpdate();
         }
         if(looping)
