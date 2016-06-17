@@ -54,6 +54,10 @@ public class Character : MonoBehaviour
         animator = GetComponent<Animator>();
         scale = leftScale = transform.localScale;
         leftScale.x *= -1;
+        gravity = gravity / 100;
+        maxGravity = maxGravity / 100;
+        playerSpeed = playerSpeed / 100;
+        jumpForce = jumpForce / 100;
     }
     void FixedUpdate()
     {
@@ -88,12 +92,12 @@ public class Character : MonoBehaviour
             transform.localScale = scale;
         }
 
-        if (!isGrounded && ySpeed > maxGravity / 100)
+        if (!isGrounded && ySpeed > maxGravity)
         {
-            ySpeed -= gravity / 100;
+            ySpeed -= gravity;
         }
 
-        movement.x = (xSpeed*playerSpeed / 100) + xSpeedExtra;
+        movement.x = (xSpeed*playerSpeed);
         movement.y = ySpeed;
     }
     public void Shoot()
@@ -106,11 +110,9 @@ public class Character : MonoBehaviour
             GameObject temp = Instantiate(bullet, gunPoint.position, Quaternion.identity) as GameObject;
             temp.GetComponent<Projectile>().SetVelocity(transform.localScale.x * 20, Random.value);
             temp.GetComponent<Projectile>().PlayerWhoShootYou = this;
-            temp.transform.localScale = new Vector2(temp.transform.localScale.x *transform.localScale.x, temp.transform.localScale.y);
             ySpeed += 0.1f;
-            xSpeedExtra -= transform.localScale.x / 40;
+            temp.transform.localScale = new Vector2(temp.transform.localScale.x *transform.localScale.x, temp.transform.localScale.y);
             StartCoroutine(ResetShooting());
-            StartCoroutine(ResetShootingAnimation());
         }
     }
     IEnumerator ResetShooting()
@@ -118,12 +120,6 @@ public class Character : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
-    }
-    IEnumerator ResetShootingAnimation()
-    {
-
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length *0.3f);
-        
         animator.SetBool("shooting", false);
     }
 
@@ -145,9 +141,9 @@ public class Character : MonoBehaviour
     {
         if(isGrounded)
         {
-        ySpeed = jumpForce / 100;
-        Instantiate(impactCloud, transform.position, Quaternion.identity);
-        animator.SetBool("grounded", false);
+            ySpeed = jumpForce;
+            Instantiate(impactCloud, transform.position, Quaternion.identity);
+            animator.SetBool("grounded", false);
         }
     }
     void OnTriggerStay2D(Collider2D coll)
